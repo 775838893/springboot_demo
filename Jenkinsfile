@@ -13,7 +13,7 @@ node {
     }
 
     stage('pack') {
-        sh "mvn -f ${project_name} clean package dockerfile:build"
+        sh "mvn -f clean package dockerfile:build"
         sh "docker tag ${imageName} ${repo_url}/${docker_project_name}/${imageName}"
     }
 
