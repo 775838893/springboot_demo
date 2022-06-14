@@ -13,8 +13,7 @@ node {
     }
 
     stage('pack') {
-        //sh "mvn clean package dockerfile:build"
-        sh "mvn clean install -Dmaven.test.skip=true dockerfile:build"
+        sh "mvn clean package dockerfile:build"
         sh "docker tag ${imageName} ${repo_url}/${docker_project_name}/${imageName}"
     }
 
