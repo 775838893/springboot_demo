@@ -25,7 +25,7 @@ node {
     }
     stage('releases') {
         //找到流水线语法sshPublisher:send bulid artifacts over ssh，其它的不管；execCommand中为deployy.sh脚本路径
-        sshPublisher(publishers: [sshPublisherDesc(configName: 'sysnthesis-cloud', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "/root/projectReleased/sysnthesiscloud/deploy.sh $repo_url $docker_project_name $project_name $tag $port", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+        sshPublisher(publishers: [sshPublisherDesc(configName: '', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "/root/projectReleased/sysnthesiscloud/deploy.sh $repo_url $docker_project_name $project_name $tag $port", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
     }
 
 }
