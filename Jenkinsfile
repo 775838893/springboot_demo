@@ -1,8 +1,8 @@
 def project_url = "git@gitee.com:hhsheng/springboot_demo.git"
-def gitlab_auth = "26c0dc65-e2ce-43e7-8574-a950c0adfdb7"
+def gitlab_auth = "*******"
 def tag = "latest"
 def repo_url = "swr.cn-southwest-2.myhuaweicloud.com"
-def docker_project_name = "dp-test"
+def docker_project_name = "projectname"
 def imageName = "${project_name}:${tag}"
 
 node {
