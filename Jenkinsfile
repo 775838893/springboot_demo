@@ -1,8 +1,6 @@
 def project_url = "git@gitee.com:hhsheng/springboot_demo.git"
-def gitlab_auth = "*******"
 def tag = "latest"
 def repo_url = "swr.cn-southwest-2.myhuaweicloud.com"
-def docker_project_name = "projectname"
 def imageName = "${project_name}:${tag}"
 
 node {
@@ -24,7 +22,7 @@ node {
             sh "echo 镜像上传成功"
         }
     }
-    stage('远程发布') {
+    stage('releases') {
         //找到流水线语法sshPublisher:send bulid artifacts over ssh，其它的不管；execCommand中为deployy.sh脚本路径
         sshPublisher(publishers: [sshPublisherDesc(configName: 'sysnthesis-cloud', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "/root/projectReleased/sysnthesiscloud/deploy.sh $harbor_url $docker_project_name $project_name $tag $port", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
     }
